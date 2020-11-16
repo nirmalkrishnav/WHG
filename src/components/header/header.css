@@ -1,0 +1,13 @@
+.header {
+    background-color: #70e7f1;
+    color: #000000;
+    padding: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.title {
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: 20px;
+}
