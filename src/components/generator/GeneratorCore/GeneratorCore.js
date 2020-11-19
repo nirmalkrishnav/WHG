@@ -1,5 +1,5 @@
 import React from 'react';
-import sentenseCase from './../../../helpers';
+import { sentenseCase, instaTag } from './../../../helpers';
 
 class GeneratorCore extends React.Component {
 
@@ -24,7 +24,7 @@ class GeneratorCore extends React.Component {
         return (
             <>
                 {this.config.map(configArr => {
-                   return <div className="dc-card">
+                    return <div key={configArr} className="dc-card">
                         #{this.props.nameOne.substring(configArr[0], configArr[1])}{sentenseCase(this.props.nameTwo.substring(configArr[2], configArr[3]))}
                     </div>
                 })}
@@ -34,21 +34,26 @@ class GeneratorCore extends React.Component {
         )
     }
 
+    generateHashTab = (val) => {
+        return (
+            <button className="link-button" onClick={() => instaTag(val)}>
+                #{val}
+            </button>
+        )
+    }
+
     options = () => {
         return (
             <>
                 <div className="dc-card">
-                    #{this.props.nameOne}{this.props.nameTwo}{this.props.extraWord}
+                    {this.generateHashTab(this.props.nameOne + this.props.nameTwo + this.props.extraWord)}
                 </div>
                 <div className="dc-card">
-                    #{this.props.nameOne}{this.props.nameTwo}{this.props.year}
+                    {this.generateHashTab(this.props.nameOne + this.props.nameTwo + this.props.year)}
                 </div>
                 <div className="dc-card">
-                    #{this.props.nameTwo}{this.props.nameOne}
+                    {this.generateHashTab(this.props.nameTwo + this.props.nameOne)}
                 </div>
-
-                
-
 
                 <div className="dc-card">
                     #{this.props.nameTwo.substring(0, 3)}{sentenseCase(this.props.nameOne.substring(this.props.nameOne.length - 3))}
@@ -61,12 +66,13 @@ class GeneratorCore extends React.Component {
         )
     }
 
+
     render() {
         return (
 
             <div className="tags">
                 {this.props.nameOne.length && this.props.nameTwo.length ?
-                    this.options() : 'null'
+                    this.options() : null
                 }
             </div>
         )

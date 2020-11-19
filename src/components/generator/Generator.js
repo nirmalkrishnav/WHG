@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GeneratorCore from './GeneratorCore/GeneratorCore';
-import sentenseCase from './../../helpers';
+import { sentenseCase } from './../../helpers';
 
 const Generator = (props) => {
 
@@ -41,8 +41,11 @@ const Generator = (props) => {
                         <input value={extraWord} className="dc-input" type="text" id="extraWord" placeholder="e. g. Hitched" onChange={e => setExtraWord(e.target.value)} />
                     </div>
                 </div>
-            </div>
+                <div className="dc-column">
+                    <p>Tap on each tag to checkout how unique they are..</p>
+                </div>
 
+            </div>
 
             <GeneratorCore nameOne={nameOne} nameTwo={nameTwo} year={year} extraWord={extraWord} />
         </div>

@@ -1,4 +1,4 @@
-const sentenseCase = (val) => {
+const sentenseCase=(val) =>{
     if (val !== null && val.length < 1) {
         return ''
     }
