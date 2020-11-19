@@ -1,4 +1,5 @@
 import React from 'react';
+import sentenseCase from './../../../helpers';
 
 class GeneratorCore extends React.Component {
 
@@ -7,36 +8,33 @@ class GeneratorCore extends React.Component {
     state = {
         nameOne: '',
         nameTwo: '',
-        year: 2021
+        year: 2021,
+        extraWord: ''
     };
 
-    hashtags = () => {
+    options = () => {
         return (
             <>
                 <div className="dc-card">
-                    #{this.props.nameOne}{this.props.nameTwo}
+                    #{this.props.nameOne}{this.props.nameTwo}{this.props.extraWord}
                 </div>
                 <div className="dc-card">
-                    #{this.props.nameOne.substring(0, 3)}{this.props.nameTwo.substring(0, 3)}
+                    #{this.props.nameOne}{this.props.nameTwo}{this.props.year}
                 </div>
                 <div className="dc-card">
-                    #{this.props.nameOne.substring(0, 4)}{this.props.nameTwo.substring(0, 4)}
+                    #{this.props.nameTwo}{this.props.nameOne}
                 </div>
+
+
                 <div className="dc-card">
-                    #{this.props.nameOne.substring(0, 4)}{this.props.nameTwo.substring(0, 3)}
+                    #{this.props.nameOne.substring(0, 3)}{sentenseCase(this.props.nameTwo.substring(0, 3))}
                 </div>
 
                 <div className="dc-card">
-                    #{this.props.nameTwo.substring(0, 3)}{this.props.nameOne.substring(0, 3)}
+                    #{this.props.nameOne.substring(0, 3)}{sentenseCase(this.props.nameTwo.substring(this.props.nameTwo.length - 3))}
                 </div>
                 <div className="dc-card">
-                    #{this.props.nameTwo.substring(0, 3)}{this.props.nameOne.substring(0, 3)}{this.props.year}
-                </div>
-                <div className="dc-card">
-                    #{this.props.nameTwo.substring(0, 4)}{this.props.nameOne.substring(0, 4)}
-                </div>
-                <div className="dc-card">
-                    #{this.props.nameTwo.substring(0, 4)}{this.props.nameOne.substring(0, 3)}
+                    #{this.props.nameOne.substring(0, 4)}{sentenseCase(this.props.nameTwo.substring(this.props.nameTwo.length - 3))}
                 </div>
             </>
         )
@@ -47,7 +45,7 @@ class GeneratorCore extends React.Component {
 
             <div className="tags">
                 {this.props.nameOne.length && this.props.nameTwo.length ?
-                    this.hashtags() : null
+                    this.options() : 'null'
                 }
             </div>
         )

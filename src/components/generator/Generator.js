@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
 import GeneratorCore from './GeneratorCore/GeneratorCore';
+import sentenseCase from './../../helpers';
 
 const Generator = (props) => {
 
-    const [nameOne, setNameOne] = useState('John');
-    const [nameTwo, setNameTwo] = useState('Jill');
+    const [nameOne, setNameOne] = useState('Harish');
+    const [nameTwo, setNameTwo] = useState('Pragathi');
     const [year, setYear] = useState(() => {
         let d = new Date();
         return d.getFullYear().toString();
     });
+    const [extraWord, setExtraWord] = useState('Kalyanam');
 
-    const sentenseCase = (val) => {
-        if (val !== null && val.length < 1) {
-            return ''
-        }
-
-        val = val[0].toUpperCase() + val.substring(1);
-        return val;
-    }
 
     return (
         <div>
@@ -37,14 +31,20 @@ const Generator = (props) => {
                 </div>
                 <div className="dc-column">
                     <div className="dc-column__contents dc-column__contents--center">
-                        <label className="dc-label" htmlFor="year">Partner Name</label>
+                        <label className="dc-label" htmlFor="year">Year</label>
                         <input value={year} className="dc-input" type="number" id="year" placeholder="e. g. Year" onChange={e => setYear(e.target.value)} />
+                    </div>
+                </div>
+                <div className="dc-column">
+                    <div className="dc-column__contents dc-column__contents--center">
+                        <label className="dc-label" htmlFor="extraWord">Anythin else?</label>
+                        <input value={extraWord} className="dc-input" type="text" id="extraWord" placeholder="e. g. Hitched" onChange={e => setExtraWord(e.target.value)} />
                     </div>
                 </div>
             </div>
 
 
-            <GeneratorCore nameOne={nameOne} nameTwo={nameTwo} year={year} />
+            <GeneratorCore nameOne={nameOne} nameTwo={nameTwo} year={year} extraWord={extraWord} />
         </div>
     )
 }

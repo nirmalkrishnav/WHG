@@ -3,10 +3,10 @@ body {
 
 .tags{
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     align-items: center;
     flex-grow: 1;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .tags > div{
@@ -19,6 +19,6 @@ a{
     color: inherit;
 }
 
-label{
+.dc-label{
     color: #ff4a25;
 }
