@@ -10,34 +10,45 @@ class GeneratorCore extends React.Component {
         year: 2021
     };
 
-    render() {
+    hashtags = () => {
         return (
-            <div className="tags">
-                <div>
+            <>
+                <div className="dc-card">
                     #{this.props.nameOne}{this.props.nameTwo}
                 </div>
-                <div>
+                <div className="dc-card">
                     #{this.props.nameOne.substring(0, 3)}{this.props.nameTwo.substring(0, 3)}
                 </div>
-                <div>
+                <div className="dc-card">
                     #{this.props.nameOne.substring(0, 4)}{this.props.nameTwo.substring(0, 4)}
                 </div>
-                <div>
+                <div className="dc-card">
                     #{this.props.nameOne.substring(0, 4)}{this.props.nameTwo.substring(0, 3)}
                 </div>
-                
-                <div>
+
+                <div className="dc-card">
                     #{this.props.nameTwo.substring(0, 3)}{this.props.nameOne.substring(0, 3)}
                 </div>
-                <div>
+                <div className="dc-card">
                     #{this.props.nameTwo.substring(0, 3)}{this.props.nameOne.substring(0, 3)}{this.props.year}
                 </div>
-                <div>
+                <div className="dc-card">
                     #{this.props.nameTwo.substring(0, 4)}{this.props.nameOne.substring(0, 4)}
                 </div>
-                <div>
+                <div className="dc-card">
                     #{this.props.nameTwo.substring(0, 4)}{this.props.nameOne.substring(0, 3)}
                 </div>
+            </>
+        )
+    }
+
+    render() {
+        return (
+
+            <div className="tags">
+                {this.props.nameOne.length && this.props.nameTwo.length ?
+                    this.hashtags() : null
+                }
             </div>
         )
     }
