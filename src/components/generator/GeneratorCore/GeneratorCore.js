@@ -12,6 +12,28 @@ class GeneratorCore extends React.Component {
         extraWord: ''
     };
 
+    config = [
+        [0, 3, 0, 3],
+        [0, 1, 0, 1],
+
+    ]
+
+
+    renderConfigs = () => {
+
+        return (
+            <>
+                {this.config.map(configArr => {
+                   return <div className="dc-card">
+                        #{this.props.nameOne.substring(configArr[0], configArr[1])}{sentenseCase(this.props.nameTwo.substring(configArr[2], configArr[3]))}
+                    </div>
+                })}
+            </>
+
+
+        )
+    }
+
     options = () => {
         return (
             <>
@@ -25,17 +47,16 @@ class GeneratorCore extends React.Component {
                     #{this.props.nameTwo}{this.props.nameOne}
                 </div>
 
+                
+
 
                 <div className="dc-card">
-                    #{this.props.nameOne.substring(0, 3)}{sentenseCase(this.props.nameTwo.substring(0, 3))}
-                </div>
-
-                <div className="dc-card">
-                    #{this.props.nameOne.substring(0, 3)}{sentenseCase(this.props.nameTwo.substring(this.props.nameTwo.length - 3))}
+                    #{this.props.nameTwo.substring(0, 3)}{sentenseCase(this.props.nameOne.substring(this.props.nameOne.length - 3))}
                 </div>
                 <div className="dc-card">
                     #{this.props.nameOne.substring(0, 4)}{sentenseCase(this.props.nameTwo.substring(this.props.nameTwo.length - 3))}
                 </div>
+                {this.renderConfigs()}
             </>
         )
     }
