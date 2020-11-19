@@ -1,13 +1,17 @@
 .header {
-    background-color: #70e7f1;
-    color: #000000;
-    padding: 25px;
-    display: flex;
-    justify-content: space-evenly;
+    
 }
 
-.title {
-    flex-grow: 1;
-    font-weight: bold;
-    font-size: 20px;
+.part-one{
+    padding: 25px;
+    background-color: #ff4a25;
+    color:#fff;
+    font-size: 22px;
+}
+
+.part-two{
+    padding: 25px;
+    background-color: #ffffff;
+    color: #ff4a25;
+    text-align: right;
 }

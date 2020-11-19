@@ -10,10 +10,6 @@ class GeneratorCore extends React.Component {
         year: 2021
     };
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="tags">
