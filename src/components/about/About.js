@@ -22,7 +22,7 @@ const About = (props) => {
 
             <p>
                 <u>
-                    <a href="https://github.com/nirmalkrishnav/WHG" target="_blank">Wish to see how this works ?</a>
+                    <a href="https://github.com/nirmalkrishnav/WHG" target="_blank" rel="noopener noreferrer">Wish to see how this works ?</a>
                 </u>
             </p>
 

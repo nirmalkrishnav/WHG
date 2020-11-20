@@ -82,13 +82,13 @@ class GeneratorCore extends React.Component {
                     <>
                         {this.templateOutput()}
                         <button onClick={() => this.crackTheEgg()}>
-                            <b>Click to a Initiate bot</b> to spam your wedding pictures for next 9 months, then again each Q2, Q3, every Anniversary, on a randomly selected Thursday for a throwback (if it's still a thing) </button>
+                            <b>Click to Initiate bot</b> to spam your wedding pictures for next 9 months, then again each Q2, Q3, every Anniversary, on a randomly selected Thursday for a throwback (if it's still a thing) </button>
                     </>
 
                 ) :
                 (
                     <div className="dc--text-center">
-                        💍 Fill in your names 💍
+                        <span role="img" aria-label="ring">💍</span> Fill in your names <span role="img" aria-label="ring">💍</span>
                     </div>
                 )
         )
@@ -105,7 +105,7 @@ class GeneratorCore extends React.Component {
                 <div className="dc--text-center">
                     Congratulations
                 </div>
-                <img src={wubuhlubuhdubdub} />
+                <img src={wubuhlubuhdubdub} alt="wubuhlubuhdubdub" />
             </>
         )
     }

@@ -14,8 +14,13 @@ const Header = (props) => {
                     <Link to="/">{props.title}</Link>
                 </div>
             </div>
-            <div className="dc-column dc-column--small-6 part-two">
-                <div className="dc-column__contents dc-column__contents--center">
+            <div className="dc-column dc-column--small-6 part-two dc-row dc-row--align--right m-0">
+
+                <div className="dc-column dc-column--small-3">
+                    <Link to="/">Home</Link>
+                </div>
+
+                <div className="dc-column dc-column--small-3" >
                     <Link to="/about">About</Link>
                 </div>
             </div>
