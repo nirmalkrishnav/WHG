@@ -1,5 +1,5 @@
 import React from 'react';
-import { sentenseCase, instaTag, juggler } from './../../../helpers';
+import { instaTag, juggler, tagCase } from './../../../helpers';
 
 class GeneratorCore extends React.Component {
 
@@ -17,6 +17,7 @@ class GeneratorCore extends React.Component {
 
         let templates = [
             `#${this.props.nameOne}And${this.props.nameTwo}`,
+            `#${this.props.nameTwo}And${this.props.nameOne}${tagCase(this.props.extraWord)}`,
             `#${this.props.nameOne}${this.props.nameTwo}${this.props.year}`,
             `#${this.props.nameOne}and${this.props.nameTwo}AreDoingIt`,
         ]
