@@ -1,17 +1,23 @@
 import React from 'react';
 import { instaTag, juggler, tagCase } from './../../../helpers';
+import wubuhlubuhdubdub from './../../../assets/giphy.gif';
 
 class GeneratorCore extends React.Component {
-
-    weirdChars = ['w']
 
     state = {
         nameOne: '',
         nameTwo: '',
         year: 2021,
-        extraWord: ''
+        extraWord: '',
+        egg: false
     };
 
+    crackTheEgg = () => {
+        this.setState({
+            egg: true
+        })
+
+    }
 
     templateOutput = () => {
 
@@ -69,12 +75,48 @@ class GeneratorCore extends React.Component {
         )
     }
 
+    showTags = () => {
+        return (
+            this.props.nameOne.length && this.props.nameTwo.length ?
+                (
+                    <>
+                        {this.templateOutput()}
+                        <button onClick={() => this.crackTheEgg()}>
+                            <b>Click to a Initiate bot</b> to spam your wedding pictures for next 9 months, then again each Q2, Q3, every Anniversary, on a randomly selected Thursday for a throwback (if it's still a thing) </button>
+                    </>
+
+                ) :
+                (
+                    <div className="dc--text-center">
+                        💍 Fill in your names 💍
+                    </div>
+                )
+        )
+    }
+
+    showEgg = () => {
+
+        setTimeout(() => {
+            this.setState({ egg: false });
+        }, 2000)
+
+        return (
+            <>
+                <div className="dc--text-center">
+                    Congratulations
+                </div>
+                <img src={wubuhlubuhdubdub} />
+            </>
+        )
+    }
+
     render() {
         return (
-            <div className="tags">
-                {this.props.nameOne.length && this.props.nameTwo.length ?
-                    this.templateOutput() : null
-                }
+            <div>
+                <p className="dc--text-center">Tap on each tag to checkout how unique they are..</p>
+                <div className="tags">
+                    {this.state.egg ? this.showEgg() : this.showTags()}
+                </div>
             </div>
         )
     }

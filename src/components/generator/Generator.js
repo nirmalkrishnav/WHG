@@ -4,7 +4,7 @@ import { sentenseCase } from './../../helpers';
 
 const Generator = (props) => {
 
-    const [nameOne, setNameOne] = useState('Pragathi');
+    const [nameOne, setNameOne] = useState('Prakathy');
     const [nameTwo, setNameTwo] = useState('Harisk');
     const [year, setYear] = useState(() => {
         let d = new Date();
@@ -44,9 +44,7 @@ const Generator = (props) => {
 
 
             </div>
-            <div className="dc-row">
-                <p>Tap on each tag to checkout how unique they are..</p>
-            </div>
+          
             <div className="dc-row">
                 <GeneratorCore nameOne={nameOne} nameTwo={nameTwo} year={year} extraWord={extraWord} />
             </div>
