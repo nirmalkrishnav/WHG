@@ -4,8 +4,8 @@ import { sentenseCase } from './../../helpers';
 
 const Generator = (props) => {
 
-    const [nameOne, setNameOne] = useState('Harish');
-    const [nameTwo, setNameTwo] = useState('Pragathi');
+    const [nameOne, setNameOne] = useState('Pragathi');
+    const [nameTwo, setNameTwo] = useState('Harisk');
     const [year, setYear] = useState(() => {
         let d = new Date();
         return d.getFullYear().toString();
@@ -41,13 +41,15 @@ const Generator = (props) => {
                         <input value={extraWord} className="dc-input" type="text" id="extraWord" placeholder="e. g. Hitched" onChange={e => setExtraWord(e.target.value)} />
                     </div>
                 </div>
-                <div className="dc-column">
-                    <p>Tap on each tag to checkout how unique they are..</p>
-                </div>
+
 
             </div>
-
-            <GeneratorCore nameOne={nameOne} nameTwo={nameTwo} year={year} extraWord={extraWord} />
+            <div className="dc-row">
+                <p>Tap on each tag to checkout how unique they are..</p>
+            </div>
+            <div className="dc-row">
+                <GeneratorCore nameOne={nameOne} nameTwo={nameTwo} year={year} extraWord={extraWord} />
+            </div>
         </div>
     )
 }

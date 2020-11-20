@@ -1,5 +1,5 @@
 import React from 'react';
-import { sentenseCase, instaTag } from './../../../helpers';
+import { sentenseCase, instaTag, juggler } from './../../../helpers';
 
 class GeneratorCore extends React.Component {
 
@@ -12,67 +12,67 @@ class GeneratorCore extends React.Component {
         extraWord: ''
     };
 
-    config = [
-        [0, 3, 0, 3],
-        [0, 1, 0, 1],
 
-    ]
+    templateOutput = () => {
 
+        let templates = [
+            `#${this.props.nameOne}And${this.props.nameTwo}`,
+            `#${this.props.nameOne}${this.props.nameTwo}${this.props.year}`,
+            `#${this.props.nameOne}and${this.props.nameTwo}AreDoingIt`,
+        ]
 
-    renderConfigs = () => {
+        let forShuffle = [
+            `#${this.props.nameOne}And${this.props.nameTwo}BigDay`,
+            `#${this.props.nameOne}And${this.props.nameTwo}Wed`,
+            `#${this.props.nameOne}And${this.props.nameTwo}Wedding`,
+            `#${this.props.nameOne}Weds${this.props.nameTwo}`,
+            `#AdventuresOf${this.props.nameOne}And${this.props.nameTwo}`,
+            `#${this.props.nameOne}And${this.props.nameTwo}SittingInATree`,
+            `#${this.props.nameOne}Loves${this.props.nameTwo}`,
+            `#${this.props.nameOne}Hearts${this.props.nameTwo}`,
+            `#${this.props.nameOne}Picked${this.props.nameTwo}`,
+            `#${this.props.nameOne}And${this.props.nameTwo}GetHitched`,
+            `#${this.props.nameOne}And${this.props.nameTwo}TieTheKnot`,
+            `#${this.props.nameOne}And${this.props.nameTwo}SayIDo`,
+            `#${this.props.nameOne}And${this.props.nameTwo}Forever`,
+            `#CongratsTo${this.props.nameOne}And${this.props.nameTwo}`,
+            `#The${this.props.nameOne}And${this.props.nameTwo}Wedding`,
+            `#WaitingFor${this.props.nameOne}And${this.props.nameTwo}`,
+            `#CountOn${this.props.nameOne}And${this.props.nameTwo}`,
+            `#${this.props.nameOne}And${this.props.nameTwo}4ever`,
+            `#${this.props.nameOne}CaughtA${this.props.nameTwo}`,
+            `#FinallyFoundA${this.props.nameOne}`,
+            `#${this.props.nameOne}Got${this.props.nameTwo}ed`,
+            `#${this.props.nameOne}GotA${this.props.nameTwo}`,
+            `#${this.props.nameOne}Plus${this.props.nameTwo}`,
+            `#${this.props.nameOne}Meets${this.props.nameTwo}`,
+            `#${this.props.nameOne}${this.props.nameTwo}Merger`,
+            `#${this.props.nameOne}${this.props.nameTwo}Newlywed`,
+            `#${this.props.nameOne}And${this.props.nameTwo}InLove`,
+            `#${this.props.nameOne}And${this.props.nameTwo}KissAndTell`
+        ]
+
 
         return (
             <>
-                {this.config.map(configArr => {
-                    return <div key={configArr} className="dc-card">
-                        #{this.props.nameOne.substring(configArr[0], configArr[1])}{sentenseCase(this.props.nameTwo.substring(configArr[2], configArr[3]))}
-                    </div>
-                })}
-            </>
-
-
-        )
-    }
-
-    generateHashTab = (val) => {
-        return (
-            <button className="link-button" onClick={() => instaTag(val)}>
-                #{val}
-            </button>
-        )
-    }
-
-    options = () => {
-        return (
-            <>
-                <div className="dc-card">
-                    {this.generateHashTab(this.props.nameOne + this.props.nameTwo + this.props.extraWord)}
-                </div>
-                <div className="dc-card">
-                    {this.generateHashTab(this.props.nameOne + this.props.nameTwo + this.props.year)}
-                </div>
-                <div className="dc-card">
-                    {this.generateHashTab(this.props.nameTwo + this.props.nameOne)}
-                </div>
-
-                <div className="dc-card">
-                    #{this.props.nameTwo.substring(0, 3)}{sentenseCase(this.props.nameOne.substring(this.props.nameOne.length - 3))}
-                </div>
-                <div className="dc-card">
-                    #{this.props.nameOne.substring(0, 4)}{sentenseCase(this.props.nameTwo.substring(this.props.nameTwo.length - 3))}
-                </div>
-                {this.renderConfigs()}
+                {
+                    [...templates, ...juggler(forShuffle)].map(line => {
+                        return (<div key={line} className="dc-card">
+                            <button className="link-button" onClick={() => instaTag(line)}>
+                                {line}
+                            </button>
+                        </div>)
+                    })
+                }
             </>
         )
     }
-
 
     render() {
         return (
-
             <div className="tags">
                 {this.props.nameOne.length && this.props.nameTwo.length ?
-                    this.options() : null
+                    this.templateOutput() : null
                 }
             </div>
         )
